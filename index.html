@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Soulmate?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        .heart {
+            font-size: 3rem;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .yes-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        .yes-btn:hover {
+            background: #45a049;
+        }
+        .no-btn {
+            background: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="text">Hellooo Booo<br>Happy Propose Day ❤️😘</h1>
+        <button class="yes-btn" onclick="nextPage()">Next</button>
+    </div>
+    <script>
+        let pages = [
+            "Kuch kahna tha Tumse🙈",
+            "Tum sunna chahoge kya😍",
+            "Zindagi ek chota sa safar ha🫶🏻",
+            "Tum mere sath chalna chahoge kya🥹",
+            "Aur jab kabhi mujhe apka khayal ya neend aaye😉",
+            "To muje apne Gaudh me sulaayoge kya😊"
+        ];
+        let index = 0;
+
+        function nextPage() {
+            if (index < pages.length) {
+                document.getElementById("text").innerHTML = pages[index];
+                index++;
+            } else {
+                document.body.innerHTML = `<h1>Mine lovely Booooooooo😘❤️. Will you be my soulmate ?🥹💕</h1>
+                    <button class='yes-btn' onclick='showLove()'>Yes!</button>
+                    <button class='no-btn' onmouseover='moveButton(this)'>Sochna Padega! , Dhekte Hai!</button>`;
+            }
+        }
+
+        function showLove() {
+            document.body.innerHTML = "<h1>Yay! I Love You Booooo ❤️</h1>";
+        }
+
+        function moveButton(button) {
+            let x = Math.random() * (window.innerWidth - button.clientWidth);
+            let y = Math.random() * (window.innerHeight - button.clientHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
