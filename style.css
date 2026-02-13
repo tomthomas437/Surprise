@@ -1,0 +1,61 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{height:100vh;overflow:hidden;background:linear-gradient(-45deg,#ff4e50,#fc913a,#f9d423,#ff6ec4,#7b2ff7);background-size:400% 400%;animation:gradient 12s ease infinite;color:white;text-align:center;cursor:none;position:relative;}
+
+@keyframes gradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+.section{display:none;height:100vh;width:100%;padding:30px;justify-content:center;align-items:center;flex-direction:column;}
+.active{display:flex;}
+
+button{padding:12px 25px;border:none;border-radius:30px;font-size:1.1rem;margin:10px;cursor:pointer;transition:.3s;}
+.next-btn{background:white;color:#ff4e50;}
+.yes-btn{background:#00ff99;color:black;}
+.no-btn{background:#ff1744;color:white;position:relative;}
+
+.cursor{position:fixed;width:15px;height:15px;background:white;border-radius:50%;pointer-events:none;mix-blend-mode:difference;}
+
+.love-title{font-size:2.5rem;margin-bottom:20px;}
+.love-sub{margin-top:10px;font-size:1.2rem;}
+.memory-timeline{height:60vh;overflow-y:auto;width:90%;display:flex;flex-direction:column;gap:30px;padding:20px;}
+.memory{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.1);padding:15px;border-radius:15px;backdrop-filter:blur(10px);}
+.memory:nth-child(even){flex-direction:row-reverse;}
+.memory img{width:200px;border-radius:15px;}
+.memory-text{max-width:400px;text-align:left;}
+
+.final-message{font-size:2.5rem;margin-top:30px;animation:glow 2s infinite alternate;}
+@keyframes glow{from{text-shadow:0 0 10px pink;}to{text-shadow:0 0 25px white;}}
+
+.countdown{font-size:1.5rem;margin-top:20px;}
+
+.reasons-title{
+font-size:2.5rem;
+margin-bottom:30px;
+animation:glow 2s infinite alternate;
+}
+
+.reason{
+opacity:0;
+transform:translateY(20px);
+transition:1.2s ease;
+font-size:1.2rem;
+margin:12px 0;
+}
+
+.reason.show{
+opacity:1;
+transform:translateY(0);
+text-shadow:0 0 10px pink, 0 0 20px rgba(255,105,180,0.7);
+}
+
+.section {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.active {
+  display: flex;
+}
