@@ -1,61 +1,214 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{height:100vh;overflow:hidden;background:linear-gradient(-45deg,#ff4e50,#fc913a,#f9d423,#ff6ec4,#7b2ff7);background-size:400% 400%;animation:gradient 12s ease infinite;color:white;text-align:center;cursor:none;position:relative;}
+/* ===== Reset & Base ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-@keyframes gradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+body{
+  min-height:100vh;
+  min-height:100svh; /* iPhone fix */
+  overflow-x:hidden;
+  overflow-y:hidden; /* can toggle for memory section */
+  background:linear-gradient(-45deg,#ff4e50,#fc913a,#f9d423,#ff6ec4,#7b2ff7);
+  background-size:400% 400%;
+  animation:gradient 12s ease infinite;
+  color:white;
+  text-align:center;
+  cursor:none;
+  position:relative;
+}
 
-.section{display:none;height:100vh;width:100%;padding:30px;justify-content:center;align-items:center;flex-direction:column;}
-.active{display:flex;}
+@keyframes gradient{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
-button{padding:12px 25px;border:none;border-radius:30px;font-size:1.1rem;margin:10px;cursor:pointer;transition:.3s;}
-.next-btn{background:white;color:#ff4e50;}
-.yes-btn{background:#00ff99;color:black;}
-.no-btn{background:#ff1744;color:white;position:relative;}
+/* ===== Sections ===== */
+.section{
+  display:none;
+  min-height:100svh; /* fixes iPhone cutting issue */
+  width:100%;
+  padding:40px 20px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
 
-.cursor{position:fixed;width:15px;height:15px;background:white;border-radius:50%;pointer-events:none;mix-blend-mode:difference;}
+.active{
+  display:flex;
+}
 
-.love-title{font-size:2.5rem;margin-bottom:20px;}
-.love-sub{margin-top:10px;font-size:1.2rem;}
-.memory-timeline{height:60vh;overflow-y:auto;width:90%;display:flex;flex-direction:column;gap:30px;padding:20px;}
-.memory{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.1);padding:15px;border-radius:15px;backdrop-filter:blur(10px);}
-.memory:nth-child(even){flex-direction:row-reverse;}
-.memory img{width:200px;border-radius:15px;}
-.memory-text{max-width:400px;text-align:left;}
+/* ===== Buttons ===== */
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  font-size:1.1rem;
+  margin:10px;
+  cursor:pointer;
+  transition:.3s;
+}
 
-.final-message{font-size:2.5rem;margin-top:30px;animation:glow 2s infinite alternate;}
-@keyframes glow{from{text-shadow:0 0 10px pink;}to{text-shadow:0 0 25px white;}}
+.next-btn{
+  background:white;
+  color:#ff4e50;
+}
 
-.countdown{font-size:1.5rem;margin-top:20px;}
+.yes-btn{
+  background:#00ff99;
+  color:black;
+}
 
+.no-btn{
+  background:#ff1744;
+  color:white;
+  position:relative;
+}
+
+/* ===== Custom Cursor ===== */
+.cursor{
+  position:fixed;
+  width:15px;
+  height:15px;
+  background:white;
+  border-radius:50%;
+  pointer-events:none;
+  mix-blend-mode:difference;
+}
+
+/* ===== Headings & Glow ===== */
+.love-title{
+  font-size:2.5rem;
+  margin-bottom:20px;
+}
+
+.love-sub{
+  margin-top:10px;
+  font-size:1.2rem;
+}
+
+.final-message{
+  font-size:2.5rem;
+  margin-top:30px;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 10px pink;}
+  to{text-shadow:0 0 25px white;}
+}
+
+/* ===== Countdown ===== */
+.countdown{
+  font-size:1.5rem;
+  margin-top:20px;
+}
+
+/* ===== Reasons Section ===== */
 .reasons-title{
-font-size:2.5rem;
-margin-bottom:30px;
-animation:glow 2s infinite alternate;
+  font-size:2.5rem;
+  margin-bottom:30px;
+  animation:glow 2s infinite alternate;
 }
 
 .reason{
-opacity:0;
-transform:translateY(20px);
-transition:1.2s ease;
-font-size:1.2rem;
-margin:12px 0;
+  opacity:0;
+  transform:translateY(20px);
+  transition:1.2s ease;
+  font-size:1.2rem;
+  margin:12px 0;
 }
 
 .reason.show{
-opacity:1;
-transform:translateY(0);
-text-shadow:0 0 10px pink, 0 0 20px rgba(255,105,180,0.7);
+  opacity:1;
+  transform:translateY(0);
+  text-shadow:0 0 10px pink, 0 0 20px rgba(255,105,180,0.7);
 }
 
-.section {
-  display: none;
-  height: 100vh;
-  width: 100%;
-  padding: 30px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/* ===== Memory Timeline ===== */
+.memory-timeline{
+  max-height:70svh; /* iPhone safe */
+  overflow-y:auto;
+  width:100%;
+  max-width:900px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
 }
 
-.active {
-  display: flex;
+/* Memory Card */
+.memory{
+  display:flex;
+  flex-direction:column; /* stack on mobile */
+  align-items:center;
+  gap:15px;
+  background:rgba(255,255,255,0.12);
+  padding:18px;
+  border-radius:18px;
+  backdrop-filter:blur(12px);
+  width:100%;
+  box-shadow:0 8px 25px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+.memory:hover{
+  transform:scale(1.02);
+}
+
+/* Memory Image */
+.memory img{
+  width:100%;
+  max-width:320px;
+  border-radius:15px;
+}
+
+/* Memory Text */
+.memory-text{
+  max-width:100%;
+  text-align:center;
+}
+
+.memory-text h3{
+  margin-bottom:8px;
+  font-size:1.3rem;
+}
+
+.memory-text p{
+  font-size:1rem;
+}
+
+/* Scrollbar Styling */
+.memory-timeline::-webkit-scrollbar{
+  width:6px;
+}
+
+.memory-timeline::-webkit-scrollbar-thumb{
+  background:white;
+  border-radius:10px;
+}
+
+/* ===== Desktop Layout Enhancement ===== */
+@media (min-width:768px){
+
+  h1{
+    font-size:2.8rem;
+  }
+
+  .memory{
+    flex-direction:row;
+    text-align:left;
+  }
+
+  .memory:nth-child(even){
+    flex-direction:row-reverse;
+  }
+
+  .memory-text{
+    text-align:left;
+  }
+
 }
