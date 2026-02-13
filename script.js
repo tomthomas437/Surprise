@@ -96,4 +96,9 @@ function nextSection(num){
   }
 }
 
+function exitPage(){
+    window.close();
+}
+
+
 

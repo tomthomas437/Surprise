@@ -212,3 +212,34 @@ button{
   }
 
 }
+.valentine-msg {
+  margin-top:40px;   /* adds 3-4 lines space */
+  color:red;         /* red color text */
+  font-size:1.5rem;  /* slightly bigger */
+  font-weight:bold;
+}
+
+.val-day{
+  margin-bottom:35px; /* space between each day card */
+  padding:20px;
+  background:rgba(255,255,255,0.08);
+  border-radius:15px;
+  backdrop-filter:blur(8px);
+}
+
+.exit-btn{
+  margin-top:40px;           /* space from the last message */
+  padding:14px 28px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:30px;
+  background:red;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.exit-btn:hover{
+  transform:scale(1.05);
+  background:darkred;
+}
